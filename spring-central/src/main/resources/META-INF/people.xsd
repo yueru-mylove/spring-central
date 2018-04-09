@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns="http://www.miracle.com/entity/schema/people"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://www.miracle.com/entity/schema/people"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <!--注意这里需要引入spring beans的名称空间， 从而使用base="beans:identifiedType"-->
+    <xsd:import namespace="http://www.springframework.org/schema/beans" />
+    <!--定义了一个名称为people的元素，它含有两个属性， name和age
+        注意：引入了spring beans名称控件，使用了spring的base扩展后，这里会默认引入id属性
+    -->
+    <!--
+        我们可以看一下identifiedType中的内容：其实就是一个包含了名为id的属性
+        <xsd:complexType name="identifiedType" abstract="true">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+	The unique identifier for a bean. The scope of the identifier
+	is the enclosing bean factory.
+			]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="id" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[
+	The unique identifier for a bean. A bean id may not be used more than once
+	within the same <beans> element.
+				]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    -->
+
+    <xsd:element name="people">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="name" type="xsd:string" />
+                    <xsd:attribute name="age" type="xsd:int" />
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
