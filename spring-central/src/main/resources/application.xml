@@ -4,6 +4,10 @@
        xmlns:entity="http://www.miracle.com/entity/schema/people"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.miracle.com/entity/schema/people http://www.miracle.com/entity/schema/people.xsd">
 
-    <entity:people id="people" name="123" age="123"/>
+    <entity:people id="people">
+        <entity:property name="name" value="tiger"/>
+        <entity:property name="age" value="18"/>
+        <entity:property name="location" value="north_east"/>
+    </entity:people>
 
 </beans>

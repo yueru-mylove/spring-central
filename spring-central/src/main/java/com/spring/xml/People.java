@@ -7,6 +7,22 @@ public class People implements InitializingBean {
     private String id;
     private String name;
     private String age;
+    private String location;
+
+    public People(String id, String name, String age, String location) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.location = location;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public People() {
         super();
@@ -42,6 +58,7 @@ public class People implements InitializingBean {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age='" + age + '\'' +
+                ", location='" + location + '\'' +
                 '}';
     }
 
@@ -50,5 +67,6 @@ public class People implements InitializingBean {
 
         this.name = "zhangsanfeng";
         this.age = "18";
+        this.location = "china_northeast";
     }
 }

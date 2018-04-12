@@ -31,7 +31,8 @@
     </xsd:complexType>
     -->
 
-    <xsd:element name="people">
+<!--    移除该部分声明
+    <xsd:element name="oldPeople">
         <xsd:complexType>
             <xsd:complexContent>
                 <xsd:extension base="beans:identifiedType">
@@ -41,5 +42,27 @@
             </xsd:complexContent>
         </xsd:complexType>
     </xsd:element>
+-->
+
+    <!--
+        4/12更新：新更新了一个简易的类似于spring的bean定义，同时移除了原来的spring beans引入，而自定义了id属性
+        新增了复杂bean的解析，移除了原来的简单bean的解析
+    -->
+
+    <xsd:element name="people">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="property" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+            <xsd:attribute name="id" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="property" type="propertyType" />
+
+    <xsd:complexType name="propertyType">
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="value" type="xsd:string" use="required"/>
+    </xsd:complexType>
 
 </xsd:schema>
