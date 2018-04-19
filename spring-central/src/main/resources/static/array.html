@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        /**
+         * 数组的声明方式
+         *      1. var arr = [];
+         *      2. var arr = new Array();
+         * @type {Array}
+         */
+
+        var arr = [];
+        arr[arr.length] = 1;
+        arr[arr.length] = 2;
+        arr[arr.length] = 3;
+
+        alert(arr);
+
+        var arr1 = new Array();
+        arr1[0] = 1;
+        arr1[1] = 2;
+        arr1[2] = 3;
+        arr1[3] = 6;
+
+        alert(arr1);
+
+        /**
+         * 数组的遍历
+         *
+         *  1.普通for循环
+         *  2.增强for： forEach
+         *          传入三个参数：
+         *              １．当前遍历的值
+         *              ２．当前的索引
+         *              ３．当前数组对象
+         */
+        arr1.forEach(function (value, index, array) {
+            alert(value + "," + index + "," + array);
+        });
+
+        /**
+         * 数组的排序：
+         *  sort()
+         *  返回值１：前者大于后者，交换位置
+         *  ０：相等，不变
+         *  －１：前者小于后者，不变
+         */
+
+        var arr2 = [10, 6, 8, 93, 2, 45, 7, 20, 15];
+        arr2.sort(function (a, b) {
+            return a - b;
+        });
+
+        alert(arr2);
+
+        /**
+         * call 和apply函数，　将会传入一个对象，相当于是传入的对象调用了当前的属性或方法；
+         * 区别在于他们传入的参数不同，call需要将实参一个一个传入，
+         * apply需要将参数作为一个数组传入
+         *
+         */
+        var name = "this is the window's name ... ...";
+        var obj = {
+            name : "sunwukong",
+            sayName :function () {
+                alert(this.name);
+            }
+        }
+
+        obj.sayName();
+        obj.sayName.apply(window); // 相当于ｗｉｎｄｏｗ调用了ｓａｙＮａｍｅ方法
+        window.obj.sayName.call();// 相当于window调用了sayName()方法
+
+
+        /**
+         * arguements对象：
+         *      用以接受传入的实参，即使定义了形参也不会对传入的参数产生任何影响
+         *
+         */
+        function sum() {
+
+            var sum = 0;
+            for(var i = 0; i < arguments.length; i++){
+
+                sum += arguments[i];
+            }
+
+            return sum;
+        }
+
+
+        alert( sum(1, 100, 20, 0))
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

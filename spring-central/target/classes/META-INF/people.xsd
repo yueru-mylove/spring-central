@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsd:schema xmlns="http://www.miracle.com/entity/schema/people"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
             targetNamespace="http://www.miracle.com/entity/schema/people"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified">
@@ -28,6 +29,24 @@
             </xsd:annotation>
         </xsd:attribute>
     </xsd:complexType>
+    -->
+
+<!--    移除该部分声明
+    <xsd:element name="oldPeople">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="name" type="xsd:string" />
+                    <xsd:attribute name="age" type="xsd:int" />
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+-->
+
+    <!--
+        4/12更新：新更新了一个简易的类似于spring的bean定义，同时移除了原来的spring beans引入，而自定义了id属性
+        新增了复杂bean的解析，移除了原来的简单bean的解析
     -->
 
     <xsd:element name="people">

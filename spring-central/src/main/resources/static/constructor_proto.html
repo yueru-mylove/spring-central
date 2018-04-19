@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        /*
+        *
+        * 构造函数：
+        *       1. function命名，通常首字母大写
+        *       2. 当使用构造函数创建一个对象时，构造函数中会自动将this设定为当前对象，这与java中的构造函数有相同的地方
+        *           即使当前函数或方法起作用的对象即为当前的this对象
+        *       3. 函数调用时，this是window对象；
+        *       4. 原型对象，每个对象都有一个隐含的protoType对象。可可通过类名.prototype获得。
+        *           或者可通过对象实例的_proto_属性获取
+        *
+        *
+        *
+        * */
+
+
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+
+            this.say = function () {
+                alert("i am " + this.name);
+            }
+        };
+
+        Person.prototype.toString = function () {
+            return "Person[name=" + this.name + "age=" + this.age + "]"
+        }
+
+        var p1 = new Person("孙悟空", 18);
+
+
+        p1.say();
+        alert(p1);
+
+        var name = "while name";
+
+        var obj = {
+
+            name: "sunwukong",
+
+            sayName: function () {
+                alert(this.name);
+            }
+        }
+
+        console.log(obj);
+        obj.sayName();
+        window.obj.sayName.call();
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
